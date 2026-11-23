@@ -1,0 +1,1165 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Shrisha JEE's Study progress</title>
+
+<style>
+:root {
+  --navy:#07172f;
+  --navy2:#0b2344;
+  --panel:#102b50;
+  --white:#f7fbff;
+  --muted:#b7c9df;
+  --ice:#dff4ff;
+  --glow:#9edcff;
+}
+
+* {
+  box-sizing:border-box;
+}
+
+html {
+  scroll-behavior:smooth;
+}
+
+body {
+  margin:0;
+  padding:24px 14px 55px;
+  font-family:Georgia,"Trebuchet MS",Arial,sans-serif;
+  color:var(--white);
+  background:
+    radial-gradient(ellipse at 15% 5%,#173d69 0,transparent 34%),
+    radial-gradient(ellipse at 90% 22%,#1a315a 0,transparent 30%),
+    linear-gradient(145deg,#061329,#0a1d39 52%,#07152c);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+body:before,
+body:after {
+  content:"✦  ·   ✧      ·  ✦       ✧   ·       ✦";
+  position:fixed;
+  inset:8% -10% auto;
+  pointer-events:none;
+  white-space:pre;
+  color:#d9f1ff;
+  opacity:.25;
+  letter-spacing:22px;
+  font-size:17px;
+  text-shadow:0 0 12px #bceaff,0 0 24px #78caff;
+  animation:drift 18s linear infinite;
+}
+
+body:after {
+  inset:auto -10% 12%;
+  animation-duration:24s;
+  animation-direction:reverse;
+  opacity:.17;
+}
+
+@keyframes drift {
+  from { transform:translateX(-2%) translateY(0); }
+  to { transform:translateX(3%) translateY(-18px); }
+}
+
+main {
+  max-width:900px;
+  margin:auto;
+  position:relative;
+  z-index:1;
+}
+
+/* HEADER */
+
+.hero {
+  text-align:center;
+  padding:34px 17px 27px;
+  border-radius:26px;
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(135deg,#102b50ee,#0b2040ee);
+  border:1px solid #6d9bc2;
+  box-shadow:0 12px 40px #0007,inset 0 0 35px #a8ddff0d;
+}
+
+.hero:before {
+  content:"";
+  position:absolute;
+  inset:-70%;
+  background:conic-gradient(
+    from 0deg,
+    transparent,
+    #c9efff18,
+    transparent 25%
+  );
+  animation:halo 18s linear infinite;
+}
+
+@keyframes halo {
+  to { transform:rotate(360deg); }
+}
+
+.hero > * {
+  position:relative;
+}
+
+.flower {
+  font-size:32px;
+  letter-spacing:10px;
+  filter:drop-shadow(0 0 9px #d9f3ff);
+}
+
+h1 {
+  font-family:Georgia,serif;
+  font-size:clamp(25px,5vw,38px);
+  letter-spacing:.4px;
+  margin:12px 0;
+  color:#f5fbff;
+  text-shadow:0 0 18px #9edcff88;
+}
+
+.subtitle {
+  color:#c5d9ed;
+  letter-spacing:1.2px;
+  font-size:13px;
+}
+
+.motivation {
+  margin:19px auto 0;
+  padding:14px 17px;
+  max-width:600px;
+  border-radius:16px;
+  background:#dceeff12;
+  border:1px solid #7eb5dc66;
+  color:#eff9ff;
+  font-weight:bold;
+  line-height:1.6;
+  box-shadow:0 0 20px #9edcff12;
+  transition:all .35s;
+}
+
+/* LILY FIELD */
+
+.lily-field {
+  margin:16px 0 18px;
+  padding:15px 12px;
+  text-align:center;
+  overflow:hidden;
+  border:1px solid #42688e;
+  border-radius:22px;
+  background:
+    radial-gradient(ellipse at 50% 80%,#24486a88,transparent 62%),
+    linear-gradient(135deg,#0d2748,#081a34);
+  box-shadow:0 8px 28px #0005,inset 0 0 28px #bdeaff0a;
+}
+
+.field-caption {
+  font-size:11px;
+  letter-spacing:3px;
+  color:#c8e8fa;
+  font-weight:bold;
+}
+
+.lily-art {
+  display:block;
+  width:min(100%,690px);
+  height:auto;
+  margin:0 auto;
+  filter:drop-shadow(0 0 10px #b8e7ff33);
+}
+
+.field-subtitle {
+  font-family:Georgia,serif;
+  font-style:italic;
+  font-size:13px;
+  color:#c7dced;
+  letter-spacing:.4px;
+}
+
+/* CARDS */
+
+.card {
+  background:linear-gradient(145deg,#102b50f2,#0d2443f2);
+  padding:20px;
+  margin:17px 0;
+  border-radius:20px;
+  border:1px solid #355b82;
+  box-shadow:0 8px 25px #0004,inset 0 1px #ffffff0a;
+}
+
+.section-title {
+  font-size:20px;
+  font-weight:bold;
+  margin-bottom:12px;
+  color:#eff8ff;
+}
+
+.big {
+  font-size:38px;
+  font-weight:bold;
+  color:#e4f6ff;
+  text-shadow:0 0 16px #87d5ff88;
+}
+
+/* PROGRESS BARS */
+
+.progress {
+  height:14px;
+  background:#06152b;
+  border:1px solid #426486;
+  border-radius:30px;
+  overflow:hidden;
+  margin:11px 0;
+  box-shadow:inset 0 2px 5px #0008;
+}
+
+.bar {
+  height:100%;
+  width:0%;
+  border-radius:30px;
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(90deg,#6eb9e9,#d9f4ff,#8cc9f1);
+  box-shadow:0 0 13px #9edcffaa;
+  transition:width .65s cubic-bezier(.2,.8,.2,1);
+}
+
+.bar:after {
+  content:"";
+  position:absolute;
+  top:0;
+  left:-55%;
+  width:45%;
+  height:100%;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    #ffffffc9,
+    transparent
+  );
+  animation:shine 2.8s ease-in-out infinite;
+}
+
+@keyframes shine {
+  to { left:120%; }
+}
+
+/* SUBJECT SUMMARY */
+
+.subject-summary {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+  gap:10px;
+  margin-top:17px;
+}
+
+.mini {
+  padding:13px;
+  border-radius:14px;
+  background:#dceeff0d;
+  border:1px solid #426486;
+  text-align:center;
+}
+
+.mini strong {
+  display:block;
+  font-size:13px;
+  color:#eff8ff;
+}
+
+.mini span {
+  font-size:12px;
+  color:#b9cce0;
+}
+
+.subject {
+  font-size:22px;
+  font-weight:bold;
+  color:#f4faff;
+  margin-bottom:13px;
+}
+
+.branch {
+  margin-top:13px;
+  padding:14px;
+  border-radius:15px;
+  background:#071a32a8;
+  border:1px solid #284b70;
+}
+
+h3 {
+  font-size:15px;
+  color:#b9e3ff;
+  margin:0 0 9px;
+  letter-spacing:.3px;
+}
+
+/* CHECKBOXES */
+
+label {
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  padding:9px 3px;
+  border-top:1px solid #ffffff12;
+  cursor:pointer;
+  line-height:1.45;
+  color:#e5eff9;
+}
+
+label:hover {
+  color:#fff;
+  background:#d7efff08;
+}
+
+input[type=checkbox] {
+  width:18px;
+  height:18px;
+  accent-color:#9bdcff;
+  flex-shrink:0;
+  margin:1px 0 0;
+  cursor:pointer;
+}
+
+input:checked + span {
+  text-decoration:line-through;
+  color:#9eb4ca;
+}
+
+.subject-info {
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:center;
+  font-size:13px;
+  color:#b7c9df;
+  margin-top:13px;
+}
+
+/* BUTTONS */
+
+button {
+  border:1px solid #8ab8dc;
+  padding:11px 17px;
+  background:linear-gradient(135deg,#d9f2ff,#8fc8ed);
+  color:#09203c;
+  border-radius:12px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:transform .2s,box-shadow .2s;
+}
+
+button:hover {
+  transform:translateY(-2px);
+  box-shadow:0 5px 18px #9edcff55;
+}
+
+/* ACHIEVEMENTS */
+
+.achievement {
+  text-align:center;
+  background:linear-gradient(120deg,#dceeff12,#b6e5ff20);
+  border:1px solid #6598bd;
+  border-radius:16px;
+  padding:15px;
+  margin-top:16px;
+  color:#f1f9ff;
+  font-weight:bold;
+  line-height:1.6;
+}
+
+/* FLOATING STARS */
+
+.sparkle {
+  position:fixed;
+  z-index:5;
+  pointer-events:none;
+  color:#e9f8ff;
+  text-shadow:0 0 8px #a8e2ff,0 0 18px #70caff;
+  font-size:18px;
+  animation:pop 1.15s ease-out forwards;
+}
+
+@keyframes pop {
+  0% {
+    opacity:0;
+    transform:translate(0,10px) scale(.3);
+  }
+
+  20% { opacity:1; }
+
+  100% {
+    opacity:0;
+    transform:translate(var(--dx),-85px) scale(1.5) rotate(35deg);
+  }
+}
+
+.footer {
+  text-align:center;
+  color:#9eb6ce;
+  font-size:13px;
+  margin-top:27px;
+  line-height:1.9;
+}
+
+@media(max-width:500px) {
+  .card { padding:15px; }
+  .hero { padding:27px 13px; }
+  .subject { font-size:19px; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,*:before,*:after {
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    scroll-behavior:auto!important;
+    transition:none!important;
+  }
+}
+</style>
+</head>
+
+<body>
+<main>
+
+<!-- MAIN HEADER -->
+
+<div class="hero">
+
+  <div class="flower">✧ 🤍 ⚜ 🤍 ✧</div>
+
+  <div class="subtitle">
+    WHITE LILIES · MIDNIGHT BLUE · LITTLE WINS
+  </div>
+
+  <h1>Shrisha JEE's Study progress</h1>
+
+  <div class="subtitle">
+    JEE MAIN 2027 · Your journey to success ✨
+  </div>
+
+  <div class="motivation" id="motivation">
+    Dear Shrisha, every little step counts. Keep going! 🤍
+  </div>
+
+</div>
+
+<!-- DECORATIVE WHITE LILY FIELD -->
+
+<div class="lily-field">
+
+  <div class="field-caption">
+    A LITTLE FIELD OF LILIES
+  </div>
+
+  <svg class="lily-art"
+       viewBox="0 0 760 230"
+       role="img"
+       aria-label="White lilies under a midnight-blue sky">
+
+    <defs>
+
+      <linearGradient id="petal" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#ffffff"/>
+        <stop offset=".55" stop-color="#e9f6ff"/>
+        <stop offset="1" stop-color="#a9cde8"/>
+      </linearGradient>
+
+      <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#8fb8a8"/>
+        <stop offset="1" stop-color="#315e65"/>
+      </linearGradient>
+
+      <filter id="lilyGlow" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="4" result="blur"/>
+        <feMerge>
+          <feMergeNode in="blur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+
+    </defs>
+
+    <!-- Stems -->
+
+    <g fill="none" stroke="#8db9d6" stroke-width="3" stroke-linecap="round">
+      <path d="M380 222 Q365 150 270 80"/>
+      <path d="M380 222 Q390 145 492 77"/>
+      <path d="M380 222 Q380 145 380 48"/>
+      <path d="M270 80 Q230 150 190 216"/>
+      <path d="M492 77 Q530 145 570 216"/>
+    </g>
+
+    <!-- Leaves -->
+
+    <g fill="url(#leaf)" opacity=".95">
+      <path d="M352 196 Q270 130 220 170 Q276 211 352 196Z"/>
+      <path d="M400 190 Q475 120 535 155 Q480 204 400 190Z"/>
+      <path d="M368 213 Q315 165 290 202 Q333 225 368 213Z"/>
+      <path d="M405 215 Q458 165 485 203 Q448 228 405 215Z"/>
+    </g>
+
+    <!-- Three white lilies -->
+
+    <g fill="url(#petal)" stroke="#d9efff" stroke-width="1.5" filter="url(#lilyGlow)">
+
+      <g transform="translate(270 77) rotate(-16)">
+        <ellipse cx="0" cy="-22" rx="15" ry="39"/>
+        <ellipse cx="-23" cy="-6" rx="15" ry="37" transform="rotate(-48 -23 -6)"/>
+        <ellipse cx="23" cy="-6" rx="15" ry="37" transform="rotate(48 23 -6)"/>
+        <ellipse cx="-15" cy="12" rx="13" ry="31" transform="rotate(-105 -15 12)"/>
+        <ellipse cx="15" cy="12" rx="13" ry="31" transform="rotate(105 15 12)"/>
+        <circle cx="0" cy="0" r="5" fill="#e9dba5" stroke="none"/>
+        <path d="M0 0 L-5 -19 M0 0 L7 -20 M0 0 L17 -8"
+              stroke="#bda96e" stroke-width="1.6"/>
+      </g>
+
+      <g transform="translate(492 74) rotate(15) scale(.92)">
+        <ellipse cx="0" cy="-22" rx="15" ry="39"/>
+        <ellipse cx="-23" cy="-6" rx="15" ry="37" transform="rotate(-48 -23 -6)"/>
+        <ellipse cx="23" cy="-6" rx="15" ry="37" transform="rotate(48 23 -6)"/>
+        <ellipse cx="-15" cy="12" rx="13" ry="31" transform="rotate(-105 -15 12)"/>
+        <ellipse cx="15" cy="12" rx="13" ry="31" transform="rotate(105 15 12)"/>
+        <circle cx="0" cy="0" r="5" fill="#e9dba5" stroke="none"/>
+        <path d="M0 0 L-5 -19 M0 0 L7 -20 M0 0 L17 -8"
+              stroke="#bda96e" stroke-width="1.6"/>
+      </g>
+
+      <g transform="translate(380 46) scale(1.05)">
+        <ellipse cx="0" cy="-22" rx="15" ry="39"/>
+        <ellipse cx="-23" cy="-6" rx="15" ry="37" transform="rotate(-48 -23 -6)"/>
+        <ellipse cx="23" cy="-6" rx="15" ry="37" transform="rotate(48 23 -6)"/>
+        <ellipse cx="-15" cy="12" rx="13" ry="31" transform="rotate(-105 -15 12)"/>
+        <ellipse cx="15" cy="12" rx="13" ry="31" transform="rotate(105 15 12)"/>
+        <circle cx="0" cy="0" r="5" fill="#e9dba5" stroke="none"/>
+        <path d="M0 0 L-5 -19 M0 0 L7 -20 M0 0 L17 -8"
+              stroke="#bda96e" stroke-width="1.6"/>
+      </g>
+
+    </g>
+
+    <!-- Stars -->
+
+    <g fill="#dff4ff" opacity=".9">
+      <path d="M110 53 l4 10 10 4 -10 4 -4 10 -4 -10 -10 -4 10 -4Z"/>
+      <path d="M640 43 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3Z"/>
+      <circle cx="160" cy="118" r="2.5"/>
+      <circle cx="600" cy="125" r="2.5"/>
+      <circle cx="340" cy="15" r="2"/>
+      <circle cx="555" cy="25" r="2"/>
+    </g>
+
+  </svg>
+
+  <div class="field-subtitle">
+    Keep growing quietly. Your effort is blooming. ✦
+  </div>
+
+</div>
+
+<!-- OVERALL PROGRESS -->
+
+<div class="card">
+
+  <div class="section-title">
+    ✧ Your Overall Progress
+  </div>
+
+  <div class="big" id="total">0%</div>
+
+  <div class="progress">
+    <div class="bar" id="totalbar"></div>
+  </div>
+
+  <div class="subject-info">
+    <span id="count">0 topics completed</span>
+    <span>One step at a time ✦</span>
+  </div>
+
+  <div class="subject-summary" id="summary"></div>
+
+  <div class="achievement" id="achievement">
+    🤍 Your first little star is waiting to shine!
+  </div>
+
+</div>
+
+<!-- SUBJECT TRACKERS -->
+
+<div id="tracker"></div>
+
+<!-- FOOTER REMINDER -->
+
+<div class="card" style="text-align:center">
+
+  <div class="section-title">
+    🤍 A little reminder
+  </div>
+
+  You don't have to finish everything in one day.
+  <br>
+  You just have to keep showing up for yourself.
+
+  <br><br>
+
+  <strong>Future NIT student in progress! ✧</strong>
+
+  <br><br>
+
+  <button onclick="resetAll()">
+    Reset all progress
+  </button>
+
+</div>
+
+<div class="footer">
+  Made for Shrisha under a sky full of stars ✦
+  <br>
+  JEE MAIN 2027 · SESSION 1 + SESSION 2
+  <br>
+  Keep going, little star ✧
+</div>
+
+</main>
+
+<script>
+
+/* JEE MAIN 2027 SYLLABUS */
+
+const syllabus = {
+
+  "PHYSICS": {
+
+    "Mechanics": [
+      "Units and Measurements",
+      "Kinematics",
+      "Laws of Motion",
+      "Work, Energy and Power",
+      "Rotational Motion",
+      "Gravitation",
+      "Properties of Solids and Liquids"
+    ],
+
+    "Thermal Physics and Waves": [
+      "Thermodynamics",
+      "Kinetic Theory of Gases",
+      "Oscillations and Waves"
+    ],
+
+    "Electricity and Magnetism": [
+      "Electrostatics",
+      "Current Electricity",
+      "Magnetic Effects of Current and Magnetism",
+      "Electromagnetic Induction and Alternating Currents",
+      "Electromagnetic Waves"
+    ],
+
+    "Optics and Modern Physics": [
+      "Optics",
+      "Dual Nature of Matter and Radiation",
+      "Atoms and Nuclei",
+      "Electronic Devices"
+    ],
+
+    "Experimental Skills": [
+      "Experimental Skills"
+    ]
+
+  },
+
+  "PHYSICAL CHEMISTRY (PC)": {
+
+    "Physical Chemistry": [
+      "Some Basic Concepts in Chemistry",
+      "Atomic Structure",
+      "Chemical Bonding and Molecular Structure",
+      "Chemical Thermodynamics",
+      "Solutions",
+      "Equilibrium",
+      "Redox Reactions and Electrochemistry",
+      "Chemical Kinetics"
+    ]
+
+  },
+
+  "INORGANIC CHEMISTRY (IOC)": {
+
+    "Inorganic Chemistry": [
+      "Classification of Elements and Periodicity",
+      "p-Block Elements",
+      "d- and f-Block Elements",
+      "Coordination Compounds"
+    ]
+
+  },
+
+  "ORGANIC CHEMISTRY (OC)": {
+
+    "Organic Chemistry": [
+      "Purification and Characterisation",
+      "General Organic Chemistry (GOC)",
+      "Hydrocarbons",
+      "Organic Compounds Containing Halogens",
+      "Organic Compounds Containing Oxygen",
+      "Organic Compounds Containing Nitrogen",
+      "Biomolecules",
+      "Principles Related to Practical Chemistry"
+    ]
+
+  },
+
+  "MATHEMATICS": {
+
+    "Algebra": [
+      "Sets, Relations and Functions",
+      "Complex Numbers and Quadratic Equations",
+      "Matrices and Determinants",
+      "Permutations and Combinations",
+      "Binomial Theorem",
+      "Sequence and Series"
+    ],
+
+    "Trigonometry": [
+      "Trigonometry"
+    ],
+
+    "Coordinate Geometry": [
+      "Straight Lines",
+      "Circles",
+      "Parabola",
+      "Ellipse",
+      "Hyperbola"
+    ],
+
+    "Differential Calculus": [
+      "Limits",
+      "Continuity",
+      "Differentiability",
+      "Differentiation",
+      "Applications of Derivatives"
+    ],
+
+    "Integral Calculus": [
+      "Indefinite Integration",
+      "Definite Integration",
+      "Applications of Integrals"
+    ],
+
+    "Differential Equations": [
+      "Differential Equations"
+    ],
+
+    "Vector Algebra": [
+      "Vector Algebra"
+    ],
+
+    "Three Dimensional Geometry": [
+      "Three Dimensional Geometry"
+    ],
+
+    "Statistics and Probability": [
+      "Statistics and Probability"
+    ]
+
+  }
+
+};
+
+
+/* SAVE PROGRESS */
+
+const keyName = "shrisha_jee_2027_progress";
+
+let saved = {};
+let previousPercent = 0;
+
+try {
+  saved = JSON.parse(
+    localStorage.getItem(keyName) || "{}"
+  ) || {};
+} catch(e) {
+  saved = {};
+}
+
+
+/* MOTIVATIONAL MESSAGES */
+
+const messages = [
+
+  "🤍 Small progress is still progress. Keep going, Shrisha!",
+
+  "✧ Your future self is going to thank you for today's effort!",
+
+  "✨ One chapter at a time. You're building something wonderful!",
+
+  "🌙 Don't chase perfect days. Chase consistent ones!",
+
+  "⭐ Every PYQ you solve is a step forward!",
+
+  "🤍 Take a breath, drink some water and continue!",
+
+  "✦ Slow days count too. Don't underestimate yourself!",
+
+  "💌 You are allowed to learn at your own pace!",
+
+  "🌟 Your JEE journey is made of all these little efforts!",
+
+  "🦋 Keep going, Shrisha. Your hard work matters!"
+
+];
+
+
+/* GET ALL CHAPTERS */
+
+function getAll() {
+
+  return Object.entries(syllabus).flatMap(
+    ([subject,branches]) =>
+
+      Object.entries(branches).flatMap(
+        ([branch,topics]) =>
+
+          topics.map(topic =>
+            subject+"|"+branch+"|"+topic
+          )
+      )
+  );
+
+}
+
+
+/* CALCULATE PROGRESS */
+
+function stats(keys) {
+
+  const done = keys.filter(k => saved[k]).length;
+
+  return {
+    done,
+    total:keys.length,
+    pct:keys.length
+      ? Math.round(done/keys.length*100)
+      : 0
+  };
+
+}
+
+
+/* BUILD TRACKER */
+
+function makeTracker() {
+
+  const root = document.getElementById("tracker");
+
+  root.innerHTML = "";
+
+  Object.entries(syllabus).forEach(
+    ([subject,branches]) => {
+
+      const card = document.createElement("div");
+      card.className = "card";
+
+      const heading = document.createElement("div");
+      heading.className = "subject";
+
+      heading.textContent =
+        ({
+          PHYSICS:"⚡ ",
+          "PHYSICAL CHEMISTRY (PC)":"🧪 ",
+          "INORGANIC CHEMISTRY (IOC)":"🌿 ",
+          "ORGANIC CHEMISTRY (OC)":"🧬 ",
+          MATHEMATICS:"📐 "
+        })[subject] + subject;
+
+      card.appendChild(heading);
+
+      const keys = [];
+
+      Object.entries(branches).forEach(
+        ([branch,topics]) => {
+
+          const box = document.createElement("div");
+          box.className = "branch";
+
+          const title = document.createElement("h3");
+          title.textContent = branch;
+
+          box.appendChild(title);
+
+          topics.forEach(topic => {
+
+            const key =
+              subject+"|"+branch+"|"+topic;
+
+            keys.push(key);
+
+            const label = document.createElement("label");
+
+            const cb = document.createElement("input");
+            cb.type = "checkbox";
+            cb.checked = !!saved[key];
+
+            const text = document.createElement("span");
+            text.textContent = topic;
+
+            cb.addEventListener("change",() => {
+
+              saved[key] = cb.checked;
+
+              localStorage.setItem(
+                keyName,
+                JSON.stringify(saved)
+              );
+
+              update();
+
+            });
+
+            label.append(cb,text);
+
+            box.appendChild(label);
+
+          });
+
+          card.appendChild(box);
+
+        }
+      );
+
+      const info = document.createElement("div");
+      info.className = "subject-info";
+
+      const label = document.createElement("span");
+      const pct = document.createElement("span");
+
+      info.append(label,pct);
+
+      card.appendChild(info);
+
+      const progress = document.createElement("div");
+      progress.className = "progress";
+
+      const bar = document.createElement("div");
+      bar.className = "bar";
+
+      progress.appendChild(bar);
+      card.appendChild(progress);
+
+      card._keys = keys;
+      card._label = label;
+      card._pct = pct;
+      card._bar = bar;
+
+      root.appendChild(card);
+
+    }
+  );
+
+  update();
+
+}
+
+
+/* FLOATING STAR CELEBRATION */
+
+function sparkleBurst() {
+
+  const symbols = ["✦","✧","⋆","✨","✴"];
+
+  for(let i=0;i<18;i++) {
+
+    const star = document.createElement("span");
+
+    star.className = "sparkle";
+
+    star.textContent =
+      symbols[Math.floor(Math.random()*symbols.length)];
+
+    star.style.left =
+      (12+Math.random()*76)+"vw";
+
+    star.style.top =
+      (20+Math.random()*58)+"vh";
+
+    star.style.setProperty(
+      "--dx",
+      (Math.random()*120-60)+"px"
+    );
+
+    star.style.animationDelay =
+      (Math.random()*.25)+"s";
+
+    document.body.appendChild(star);
+
+    setTimeout(() => star.remove(),1500);
+
+  }
+
+}
+
+
+/* UPDATE EVERYTHING */
+
+function update() {
+
+  const all = getAll();
+
+  const totalStats = stats(all);
+
+  const oldPercent = previousPercent;
+
+  previousPercent = totalStats.pct;
+
+  document.getElementById("total").textContent =
+    totalStats.pct+"%";
+
+  document.getElementById("totalbar").style.width =
+    totalStats.pct+"%";
+
+  document.getElementById("count").textContent =
+    totalStats.done+" of "+totalStats.total+
+    " topics completed";
+
+
+  /* Subject progress */
+
+  document.querySelectorAll("#tracker > .card")
+    .forEach(card => {
+
+      const s = stats(card._keys);
+
+      card._label.textContent =
+        s.done+" / "+s.total+" completed";
+
+      card._pct.textContent =
+        s.pct+"%";
+
+      card._bar.style.width =
+        s.pct+"%";
+
+    });
+
+
+  /* Summary cards */
+
+  const summary =
+    document.getElementById("summary");
+
+  summary.innerHTML = "";
+
+  Object.keys(syllabus).forEach(subject => {
+
+    const keys = all.filter(
+      k => k.startsWith(subject+"|")
+    );
+
+    const s = stats(keys);
+
+    const mini = document.createElement("div");
+    mini.className = "mini";
+
+    const strong = document.createElement("strong");
+
+    strong.textContent = subject
+      .replace("PHYSICAL CHEMISTRY","PC")
+      .replace("INORGANIC CHEMISTRY","IOC")
+      .replace("ORGANIC CHEMISTRY","OC");
+
+    const span = document.createElement("span");
+
+    span.textContent =
+      s.pct+"% · "+s.done+"/"+s.total;
+
+    mini.append(strong,span);
+
+    summary.appendChild(mini);
+
+  });
+
+
+  /* Milestone messages */
+
+  const achievement =
+    document.getElementById("achievement");
+
+  if(totalStats.pct === 100) {
+
+    achievement.textContent =
+      "✦ YOU DID IT, SHRISHA! Every chapter is complete. Your hard work is shining bright! 🤍";
+
+  } else if(totalStats.pct >= 75) {
+
+    achievement.textContent =
+      "✧ 75% complete! Your sky is full of stars. Keep glowing!";
+
+  } else if(totalStats.pct >= 50) {
+
+    achievement.textContent =
+      "✦ 50% complete! Half your journey is shining behind you!";
+
+  } else if(totalStats.pct >= 25) {
+
+    achievement.textContent =
+      "✧ 25% complete! Your first constellation is taking shape!";
+
+  } else {
+
+    achievement.textContent =
+      "🤍 Every constellation begins with one little star. Start anywhere.";
+
+  }
+
+
+  /* Changing motivation */
+
+  const msgIndex = Math.min(
+    messages.length-1,
+    Math.floor(totalStats.pct/10)
+  );
+
+  document.getElementById("motivation").textContent =
+    messages[msgIndex];
+
+
+  /* Celebrate when progress increases */
+
+  if(totalStats.pct > oldPercent && oldPercent !== 0) {
+    sparkleBurst();
+  }
+
+}
+
+
+/* RESET PROGRESS */
+
+function resetAll() {
+
+  if(confirm(
+    "Are you sure you want to reset your progress, Shrisha?"
+  )) {
+
+    saved = {};
+
+    localStorage.removeItem(keyName);
+
+    previousPercent = 0;
+
+    makeTracker();
+
+  }
+
+}
+
+
+/* START */
+
+makeTracker();
+
+</script>
+
+</body>
+</html>
